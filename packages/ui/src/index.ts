@@ -1,1 +1,1 @@
-export { Label } from "./primitives/label";
+export { Button, buttonVariants } from "./components/button";

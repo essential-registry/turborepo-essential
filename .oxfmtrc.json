@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "sortImports": {},
+  "sortTailwindcss": {
+    "stylesheet": "./src/styles/root-layout.css",
+    "functions": ["cn", "cva"]
+  },
+  "ignorePatterns": [
+    ".next",
+    ".vercel",
+    ".husky",
+    ".turbo",
+    "build",
+    "dist",
+    "pnpm-lock.yaml"
+  ]
+}

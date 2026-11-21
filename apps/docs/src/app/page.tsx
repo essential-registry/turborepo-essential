@@ -1,17 +1,16 @@
-import { Label } from "@repo/ui";
+import { Button } from "@repo/ui";
 
 export default function Home() {
   return (
-    <main
-      className={"relative flex h-screen flex-col items-center justify-center"}
-    >
-      <Label className={"font-semibold text-3xl tracking-tighter"}>
-        Next Essential
-      </Label>
-      <p className={"my-4 max-w-[44rem] text-center"}>
-        The Next.js Essential Starter Template is a Next.js project that
-        provides a basic structure for building ypur next.js project.
+    <main className="flex h-screen flex-col items-center justify-center gap-4">
+      <h1 className="font-medium text-5xl tracking-tight">
+        Turborepo Essential: Docs
+      </h1>
+      <p className="max-w-xl text-center text-sm">
+        Documentation site. Edit <code>apps/docs/src/app/page.tsx</code> to
+        start.
       </p>
+      <Button>Get started</Button>
     </main>
   );
 }

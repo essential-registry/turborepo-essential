@@ -36,3 +36,11 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# Turborepo and tooling
+.turbo
+.next
+dist
+coverage
+*.tsbuildinfo
+next-env.d.ts

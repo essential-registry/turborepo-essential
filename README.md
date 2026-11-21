@@ -1,45 +1,46 @@
-# Unified Turborepo Essential
+# Turborepo Essential
 
-Unified Turborepo Essential, An Essential Template to get started with Turborepo application with all the essentials included...
+A pnpm + Turborepo monorepo with two Next.js apps and shared packages, and the essentials already set up.
 
-## Features
+## What is inside
 
-- ✨ Famework: [Next.js](https://nextjs.org/) - The React Framework
-- 📦 Bundler: [Turbopack](https://turbo.build/) - The universal bundler for web
-- 🚀 Styling: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- 💻 Language: [TypeScript](https://www.typescriptlang.org/) - Typed superset of JavaScript
-- 🧹 Linting and Formatting: [Biome.js](https://biomejs.dev/) - Fast and customizable linter and formatter
-- 🎨 Themes: [next-themes](https://github.com/pacocoursey/next-themes) - Easy theming for React.js.
-- 💄 Icons: [lucide-react](https://lucide.dev/) - A comprehensive set of icons for React.js
-- ⚙️ Build: Github Actions - Automated workflows for CI/CD
-- 🛠 Commit: [Husky](https://typicode.github.io/husky/) - Git hooks made easy
-- 📦 Package: [pnpm](https://pnpm.io/) - Fast, disk space efficient package manager
+```text
+apps/web, apps/docs      Next.js 16 apps (ports 3000 and 3001)
+packages/ui              Base UI primitives and shared Tailwind v4 theme
+packages/lib             shared helpers (cn)
+packages/env             zod environment parsing
+packages/typescript-config  shared tsconfig presets
+```
 
-## Project Structure
+- pnpm 12 with a dependency **catalog** (one version per dependency)
+- Turborepo for build, typecheck and test caching
+- oxlint (type-aware) and oxfmt at the repo root
+- vitest per package, changesets, husky, GitHub Actions
+- `AGENTS.md` and `.claude/` for AI agents
 
-- `apps/`: Source code directory
-  - `web/`: Web application
-- `packages/`: Packages directory
-  - `ui/`: UI components
-  - `tailwind-config/`: Tailwind CSS configuration
-  - `lib/`: Helpers, utilities, and configs
-  - `ts-config/`: TypeScript configuration
+## Run
 
-## Getting Started
+```bash
+pnpm install
+pnpm dev                    # everything
+pnpm dev --filter=web       # one app
+```
 
-1. Clone the repository
-2. Install dependencies: `pnpm install`
-3. Run the development server: `pnpm run dev`
-4. Open [http://localhost:5173](http://localhost:5173) in your browser
+## Scripts
 
-## Contributing
+```bash
+pnpm typecheck       # turbo: tsc in every package
+pnpm lint            # oxlint, type-aware, warnings denied
+pnpm format:check    # oxfmt check
+pnpm test            # turbo: vitest in every package
+pnpm build           # turbo build
+pnpm gen:package x   # scaffold packages/x as @repo/x
+pnpm run ci          # the gate CI runs (non-mutating)
+pnpm build:prepare   # fix lint/format, then the full gate
+```
 
-Contributions are welcome! Please follow these steps:
+See `docs/architecture.md` for how the pieces fit.
 
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature/your-feature-name`
-3. Make your changes and commit them: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/your-feature-name`
-5. Submit a pull request
+## License
 
-For major changes, please open an issue first to discuss what you would like to change.
+MIT.

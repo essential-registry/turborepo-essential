@@ -1,29 +1,31 @@
-import type { Metadata } from "next";
-import "@/styles/root-layout.css";
 import { cn } from "@repo/lib";
+
+import "@/styles/root-layout.css";
+import type { Metadata } from "next";
+
+import { env } from "@/lib/env";
 import { fonts } from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: "Turborepo Essential",
-  description:
-    "Turborepo Essential Starter Template to start your next Turborepo project.",
-  icons: {
-    icon: "favicon.png",
+  metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL),
+  title: {
+    default: "Turborepo Essential Web",
+    template: "%s | Turborepo Essential",
   },
+  description: "The main application.",
+  icons: { icon: "/favicon.png" },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
       className={cn(
         fonts.GeistSans.variable,
         fonts.GeistMono.variable,
-        "font-geistMono"
+        "font-sans"
       )}
     >
       <body>{children}</body>

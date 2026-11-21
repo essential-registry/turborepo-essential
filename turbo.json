@@ -1,16 +1,21 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "ui": "tui",
+  "$schema": "https://turborepo.dev/schema.json",
+  "ui": "stream",
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "passThroughEnv": ["SKIP_ENV_VALIDATION"]
     },
     "typecheck": {
-      "cache": true,
-      "dependsOn": ["^typecheck"],
-      "outputs": ["tsconfig.tsbuildinfo"]
+      "dependsOn": ["^typecheck"]
+    },
+    "test": {
+      "dependsOn": ["^test"]
+    },
+    "clean": {
+      "cache": false
     },
     "dev": {
       "cache": false,

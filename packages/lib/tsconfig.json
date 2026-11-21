@@ -1,5 +1,7 @@
 {
-  "extends": ["@repo/ts-config/base"],
-  "include": ["."],
-  "exclude": ["node_modules", ".turbo", "dist", "build"]
+  "extends": "@repo/typescript-config/base",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["src", "vitest.config.ts"]
 }
